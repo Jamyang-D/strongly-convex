@@ -1166,17 +1166,7 @@ def generate_random_dag(n, edge_density):
 #############
 if __name__ == "__main__":
 
-    # G = {
-    #     'A': {'B': 'b'},
-    #     'B': {},
-    #     'D': {'E': 'b'},
-    #     'C': {'B': 'b', 'E': 'b', 'D': 'b', 'F': 'b'},
-    #     'E': {'F': 'b'},
-    #     'F': {'G': 'b'},
-    #     'H': {'B': 'b'},
-    #     'I':{'H': 'b'},
-    #     'G': {'H': 'b', 'B': 'b'}
-    #     }
+   
     G = {
 
 
@@ -1188,72 +1178,13 @@ if __name__ == "__main__":
         'Y': {}
     }
     R = ['X','Y']
-    # M = ["B","C", "E", "F","G"]
-    # M = [node for node in G if node not in R]
-    # H = ITRSA(G, M)
+    
     H1 = CMCSA111_new(G, R) #C凸
     # H = CMCSA_new(G, R)  # T凸
-    print(f"{H1}")
-    # M = ['B','A','C','D','E']
-    # H2 = uv_DCL(G,'A','E',M)
-    # H4= is_set_cremoved(G, M)
-    # H3=EDC(G)
-    # # # print(H)
-    # # # print(H1)
-    # # # print(H2)
-    # # print(H3)
-    # # print(H4)
+    print(H1)
 
 
-
-    # R = ['T', 'L', 'E', 'B', 'S', 'D']
-    # H = CMCSA111_new(G, R)
-    # H1 = EDC(G)
-    # print(f"分解：{H1}")
-    #
-    # G = {
-    #         "AFF": {'CDR': 'b','APA': 'b','ALN': 'b'},
-    #         "CDR": {'DET': 'b'},
-    #         'SAN': {'AFF': 'b', 'APA': 'b','ALN': 'b', 'AIS': 'b','CDR': 'b'},
-    #         'AIS': {'SUS': 'b', 'EGC': 'b'},
-    #         'ALN': {'APA': 'b','PER': 'b', 'FTW': 'b','SUS': 'b','DET': 'b'},
-    #         'APA': {},
-    #         'PER': {'DET': 'b'},
-    #         'DET': {},
-    #         'SUS': {'FTW': 'b','EGC': 'b','HOS': 'b'},
-    #         'FTW': {'EGC': 'b','DET': 'b'},
-    #         'HOS': {},
-    #         'EGC': {'HOS': 'b'}
-    #     }
-    # R = ['AFF','HOS']
-    # M=[x for x in G if x not in R]
-    # H1 = is_set_cremoved(G,M)
-    # H = EDC(G)
-    # # H1 = EDC(G)
-    # print(f"分解：{H,H1}")
-
-    # G ={'X0': {'X1': 'b', 'X2': 'b', 'X3': 'b', 'X8': 'b', 'X9': 'b'},
-    #      'X1': {'X2': 'b', 'X6': 'b', 'X7': 'b'},
-    #      'X2': {'X4': 'b', 'X8': 'b', 'X9': 'b'},
-    #      'X3': {'X9': 'b'},
-    #      'X4': {'X9': 'b'},
-    #      'X5': {'X8': 'b'},
-    #      'X6': {},
-    #      'X7': {},
-    #      'X8': {},
-    #      'X9': {}}
-    #
-    # R = ['x','y','u','v']
-    # H1 = EDC(G)
-    # print(f"分解：{H1}")
-
-
-    # 首先生成随机链图
-    # n = 8  # 节点数
-    # edge_density = 0.2  # 边密度
-    # p_undirected = 0.1 # 双向边概率
-    #
-    # # 生成随机链图
+    # 生成随机链图
     # G = Generate_lwf(n, edge_density, p_undirected)
     # plot_result(G, 'j.png')
     #
@@ -1261,97 +1192,9 @@ if __name__ == "__main__":
     # R = random.sample(list(G.keys()), 2)  # 随机选择3个节点
     # print(R)
     # M = [x for x in G if x not in R]
-    # path = uv_DCL(G, R[0], R[1], M)
-    # print(f"从 {R[0]} 到 {R[1]} 的最短路径是: {' -> '.join(path)}")
-
-    # print(f"\n随机选择的R集合: {R}")
-    #
+    
     # # 使用两种方法计算t凸包
     # H1 = CMCSA(G, R)
     # H2 = CMCSA_new(G, R)
 
-    # 比较结果
-    # print(f"\nCMCSA方法得到的t凸包: {H1}")
-    # print(f"CMCSA_new方法得到的t凸包: {H2}")
-    # print(f"两种方法结果是否一致: {H1 == H2}")
-
-    # G = {
-    #     'r1':{'a':'b'},
-    #     'b':{'a':'b','c':'b','d':'b'},
-    #     'c':{ 'd':'b'},
-    #     'a':{'e':'b'},
-    #     'e':{'r2':'b'},
-    #     'd':{'r2':'b'},
-    #     # 'f':{'a':'b','g':'b','d':'b'},
-    #     # 'g':{'d':'b'},
-    #     'r2':{}
-    # }
-
-
-
-    # b = time.time()
-
-    # H = [{'v1'}, {'v2', 'v17', 'v13', 'v5', 'v7', 'v10', 'v16', 'v3', 'v4'}, {'v15', 'v2', 'v14', 'v10', 'v3'}, {'v20', 'v8', 'v6', 'v5', 'v10', 'v9', 'v3', 'v4', 'v18'}, {'v10', 'v5', 'v9', 'v19', 'v3', 'v6', 'v12'}, {'v11'}]
-    #
-    # perm, E_T = check_all_permutations(H)
-    # sep_list = separators(perm, E_T)
-    # print(H)
-    # print(sep_list)
-    # print(perm)
-    # # # G =  {'Erk': {'Akt': 'b'}, 'Akt': {}, 'Mek': {'Erk': 'b'}, 'PIP3': {'PIP2': 'b'}, 'PIP2': {}, 'PKA': {'Akt': 'b', 'Erk': 'b', 'Jnk': 'b', 'Mek': 'b', 'P38': 'b', 'Raf': 'b'}, 'Jnk': {}, 'P38': {}, 'Raf': {'Mek': 'b'}, 'PKC': {'Jnk': 'b', 'Mek': 'b', 'P38': 'b', 'PKA': 'b', 'Raf': 'b'}, 'Plcg': {'PIP2': 'b', 'PIP3': 'b'}}
-    # R = ['r1', 'r2']
-    # M = [x for x in G if x not in R]
-    # A = CMCSA111_new(G,R)
-    # B = CMCSA111(G,R)
-    # D = CMCSA(G, R)
-    # E= CMCSA_new(G, R)
-    # C = is_set_cremoved(G, M)
-    # print(A, B, C, D, E)
-    # plot_result(G, 'j.png')
-
-    # junction_tree = build_junction_tree(c_decomposition)
-    # print(build_junction_tree(c_decomposition))
-    # # 绘制图形
-    # pos = nx.spring_layout(junction_tree)  # 定义布局
-    # nx.draw(junction_tree, pos, with_labels=True, node_size=700, node_color="lightblue", font_size=10, font_weight="bold")
-    # labels = nx.get_edge_attributes(junction_tree, 'weight')  # 获取边的权重作为标签
-    # nx.draw_networkx_edge_labels(junction_tree, pos, edge_labels=labels)
-    
-    # plt.title("Junction Tree Visualization")
-    # plt.show()
-    # print(LD_HJT(G))
-
-    # n = 100
-    # edge_density = 0.3
-    # p_undirected = 0
-    # G = Generate_lwf(n, edge_density, p_undirected)
-    # R = random.sample(list(G.keys()), 5)
-    # # print(R)
-    # H = CMCSA(G, R)
-    # # M =[i for i in G if i not in H]
-    # # print(is_set_cremoved(G, M))
-    # print(n-len(H))
-
-
-    # for i in range(100):
-    #     lwf = Generate_lwf(n, edge_density, p_undirected)
-    #     # print(lwf)
-    #
-    #     if 'v4' in lwf['v1'].keys() or 'v1' in lwf['v4'].keys():
-    #         continue
-    # time1 = time.time()
-    # for i in range(10):
-    #     C = c_Proximal_separator(CG, 'v1', 'v4')
-    # print(time.time() - time1)
-    # time2 = time.time()
-    # for i in range(10):
-    #     b = reach_set2(CG, ['v1', 'v4'])
-    # print(time.time() - time2)
-
-    # if C != b:
-    #     print(f'c={C}, b={b}')
-    #     plot_result(lwf, f'{i}.png',title=f'c={C}, b={b}')
-
-    # M = random.sample(list(lwf.keys()), m)
-    # MF = ITRSA(lwf, M, re_MF=True)
     # plot_result(lwf, 'j.png', title=f"M={M}, MF = {MF}")
